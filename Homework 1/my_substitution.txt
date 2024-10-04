@@ -1,0 +1,7 @@
+cipher_suite["R"] = "E" #Perche la R e la E statisticamente sono le piu comuni (la R nel messaggio e la nella lingua inglese)
+cipher_suite["A"] = "G" 
+cipher_suite["P"] = "B" #Perche per intuito dalla prima decrittografia spunta RONNA DE che potrebbe essere GONNA BE
+cipher_suite["Y"] = "R" 
+cipher_suite["M"] = "Y"
+cipher_suite["I"] = "U" #Perche per intuito dalla prima decrittografia spunta SOL'UE che mi fa pensare grazie anche all'apostrofo a YOU'RE 
+cipher_suite["V"] = "S" #Perche dopo un ulteriore analisi dopo la precedenti sostituzioni é che nella prima frase abbiamo BUCCY YOU'RE A BOY GAE A BIG NOIME e NOIME, dopo un attenta analisi mi fa pensare a NOISE
