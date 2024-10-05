@@ -13,21 +13,21 @@ def create_cipher_suite(frequences_in_msg,frequences_english):
         min_diff = float('inf')
         closest_key = None
         keys_checked = set()  # Per tenere traccia delle chiavi già verificate
-        
-        while True:
-            min_diff = float('inf')  
-            for key2 in frequences_english:
-                if key2 in keys_checked:  
-                    continue
-                diff = abs(frequences_in_msg[key1] - frequences_english[key2])
-                if diff < min_diff:
-                    min_diff = diff
-                    closest_key = key2
-            if closest_key not in cipher_suite.values():
-                cipher_suite[key1] = closest_key
-                break 
-            else:
-                keys_checked.add(closest_key)   
+        if key1 not in cipher_suite.keys():
+            while True:
+                min_diff = float('inf')  
+                for key2 in frequences_english:
+                    if key2 in keys_checked:  
+                        continue
+                    diff = abs(frequences_in_msg[key1] - frequences_english[key2])
+                    if diff < min_diff:
+                        min_diff = diff
+                        closest_key = key2
+                if closest_key not in cipher_suite.values():
+                    cipher_suite[key1] = closest_key
+                    break 
+                else:
+                    keys_checked.add(closest_key)   
 
     return cipher_suite 
 
@@ -67,17 +67,29 @@ for key in frequences_in_msg:
 
 frequences_in_msg= dict(sorted(frequences_in_msg.items(), key=lambda item: item[1], reverse=True))
 
-2.07
+
 cipher_suite = create_cipher_suite(frequences_in_msg,frequences_english)
+
+cipher_suite["R"] = "E"
+cipher_suite["J"] = "A"
+cipher_suite["A"] = "G" 
+cipher_suite["P"] = "B" #Perche per intuito dalla prima decrittografia spunta RONNA DE che potrebbe essere GONNA BE
+cipher_suite["Y"] = "R" 
+cipher_suite["M"] = "Y"
+cipher_suite["Q"] = "O"
+cipher_suite["I"] = "U" #Perche per intuito dalla prima decrittografia spunta SOL'UE che mi fa pensare grazie anche all'apostrofo a YOU'RE 
+cipher_suite["V"] = "S" #Perche dopo un ulteriore analisi dopo la precedenti sostituzioni é che nella prima frase abbiamo BUCCY YOU'RE A BOY GAE A BIG NOIME e NOIME, dopo un attenta analisi mi fa pensare a NOISE
+cipher_suite["T"] = "T" #Perche SWREEW mi fa pensare a STREET
+cipher_suite["H"] = "H" #Con la sostituzione precedente si arriva alla costruzione della frase IN THE STREET
+cipher_suite["D"] = "M"  #GONNA BE A BIG GAN mi fa pensare a "GONNA BE A BIG MAN"
+cipher_suite["F"] = "D" #GONNA BE A BIG MAN SOME CAY mi fa pensare a "GONNA BE A BIG MAN SOME DAY"
 
 
 decrypted_msg = ''
 for letter in msg:
-    # Se il letter è una chiave nel dizionario, sostituiscilo
     if letter in cipher_suite:
         decrypted_msg += cipher_suite[letter]
     else:
-        # Altrimenti, lascia il letter invariato
         decrypted_msg += letter
   
     
