@@ -1,5 +1,3 @@
-import time
-
 def num_of_blank_and_ap(msg):
     count = 0
     for x in msg:
@@ -36,7 +34,7 @@ with open('l.ct', 'r') as file:
     # Leggo tutto il contenuto del messaggio
     msg = file.read()
 
-msg = msg.replace("\n", "K")
+
 msg = msg.replace(" ", "")
 msg = msg.replace("K", " ")
 
@@ -70,20 +68,41 @@ frequences_in_msg= dict(sorted(frequences_in_msg.items(), key=lambda item: item[
 
 cipher_suite = create_cipher_suite(frequences_in_msg,frequences_english)
 
+
 cipher_suite["R"] = "E"
-cipher_suite["J"] = "A"
-cipher_suite["A"] = "G" 
-cipher_suite["P"] = "B" #Perche per intuito dalla prima decrittografia spunta RONNA DE che potrebbe essere GONNA BE
+
+#Perche per intuito dalla prima decrittografia spunta SOL'UE che mi fa pensare grazie anche all'apostrofo a YOU'RE 
 cipher_suite["Y"] = "R" 
 cipher_suite["M"] = "Y"
-cipher_suite["Q"] = "O"
-cipher_suite["I"] = "U" #Perche per intuito dalla prima decrittografia spunta SOL'UE che mi fa pensare grazie anche all'apostrofo a YOU'RE 
-cipher_suite["V"] = "S" #Perche dopo un ulteriore analisi dopo la precedenti sostituzioni é che nella prima frase abbiamo BUCCY YOU'RE A BOY GAE A BIG NOIME e NOIME, dopo un attenta analisi mi fa pensare a NOISE
-cipher_suite["T"] = "T" #Perche SWREEW mi fa pensare a STREET
-cipher_suite["H"] = "H" #Con la sostituzione precedente si arriva alla costruzione della frase IN THE STREET
-cipher_suite["D"] = "M"  #GONNA BE A BIG GAN mi fa pensare a "GONNA BE A BIG MAN"
-cipher_suite["F"] = "D" #GONNA BE A BIG MAN SOME CAY mi fa pensare a "GONNA BE A BIG MAN SOME DAY"
+cipher_suite["I"] = "U" 
 
+#Perche per intuito dalla prima decrittografia spunta RONNA DE che potrebbe essere GONNA BE
+cipher_suite["J"] = "A"
+cipher_suite["A"] = "G" 
+cipher_suite["P"] = "B" 
+
+#Perche dopo un ulteriore analisi dopo la precedenti sostituzioni é che nella prima frase abbiamo BUCCY YOU'RE A BOY GAE A BIG NOIME e NOIME, dopo un attenta analisi mi fa pensare a NOISE
+cipher_suite["V"] = "S" 
+
+#Perche SWREEW mi fa pensare a STREET
+cipher_suite["T"] = "T" 
+
+#Con la sostituzione precedente si arriva alla costruzione della frase IN THE STREET
+cipher_suite["H"] = "H" 
+
+#GONNA BE A BIG GAN mi fa pensare a "GONNA BE A BIG MAN"
+cipher_suite["D"] = "M"  
+
+#GONNA BE A BIG MAN SOME CAY mi fa pensare a "GONNA BE A BIG MAN SOME DAY"
+cipher_suite["F"] = "D" 
+
+#La frase You Got Mud on Yo' KAFE mi fa pensare (ovviamente anche traducendola) You got mud on yo FACE
+cipher_suite["S"] = "F" 
+cipher_suite["O"] = "C" 
+
+#A questo punto si arriva alle soluzione finale perche si riconosce la canzone we will rock you
+cipher_suite["N"] = "P"
+cipher_suite["G"] = "L"
 
 decrypted_msg = ''
 for letter in msg:
@@ -103,7 +122,17 @@ print(cipher_suite)
 print("\n")
 print(msg)
 print("\n")
+print("\n")
+print("\n")
 print(decrypted_msg)
+print("\n")
+print("\n")
+print("\n")
+print("\n")
+print("\n")
+
+
+
 
         
 

@@ -1,7 +1,20 @@
-cipher_suite["R"] = "E" #Perche la R e la E statisticamente sono le piu comuni (la R nel messaggio e la nella lingua inglese)
+
+cipher_suite["R"] = "E"
+cipher_suite["J"] = "A"
 cipher_suite["A"] = "G" 
 cipher_suite["P"] = "B" #Perche per intuito dalla prima decrittografia spunta RONNA DE che potrebbe essere GONNA BE
 cipher_suite["Y"] = "R" 
 cipher_suite["M"] = "Y"
+cipher_suite["Q"] = "O"
 cipher_suite["I"] = "U" #Perche per intuito dalla prima decrittografia spunta SOL'UE che mi fa pensare grazie anche all'apostrofo a YOU'RE 
 cipher_suite["V"] = "S" #Perche dopo un ulteriore analisi dopo la precedenti sostituzioni é che nella prima frase abbiamo BUCCY YOU'RE A BOY GAE A BIG NOIME e NOIME, dopo un attenta analisi mi fa pensare a NOISE
+cipher_suite["T"] = "T" #Perche SWREEW mi fa pensare a STREET
+cipher_suite["H"] = "H" #Con la sostituzione precedente si arriva alla costruzione della frase IN THE STREET
+cipher_suite["D"] = "M"  #GONNA BE A BIG GAN mi fa pensare a "GONNA BE A BIG MAN"
+cipher_suite["F"] = "D" #GONNA BE A BIG MAN SOME CAY mi fa pensare a "GONNA BE A BIG MAN SOME DAY"
+cipher_suite["S"] = "F" 
+cipher_suite["O"] = "C" #La frase You Got Mud on Yo' KAFE mi fa pensare (ovviamente anche traducendola) You got mud on yo FACE
+
+#A questo punto si arriva alle soluzione finale perche si riconosce la canzone we will rock you
+cipher_suite["N"] = "P"
+cipher_suite["G"] = "L"
