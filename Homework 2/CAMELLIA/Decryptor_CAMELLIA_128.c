@@ -92,9 +92,38 @@ int main(){
     if (iv_bytes_read != CAMELLIA_BLOCK_SIZE) {handleErrors("Errore nella lettura di IV, controlla se generato");}
 
 
+    double vector_time[3];
+
+    clock_t start = clock();
     decrypt(KB_1_enc,KB_1,KEY,IV);
-    decrypt(KB_10_enc,KB_10,KEY,IV);
+    clock_t end = clock();
+
+    double time_spent = (double)(end - start) * 1000 / CLOCKS_PER_SEC;
+    vector_time[0] = time_spent;
+
+    start = clock();
+    decrypt(KB_10_enc,KB_10,KEY,IV);                    
+    end = clock();
+
+    time_spent = (double)(end - start) * 1000 / CLOCKS_PER_SEC;
+    vector_time[1] = time_spent;
+
+
+
+    start = clock();
     decrypt(MB_1_enc,MB_1,KEY,IV);
+    end = clock();
+
+    time_spent = (double)(end - start) * 1000/ CLOCKS_PER_SEC;
+    vector_time[2] = time_spent;
+   
+
+    for (int i = 0; i < 3; i++)
+    {
+       printf("Tempo di esecuzione file %d: %f secondi\n", i+1,vector_time[i]);
+    }
+    
+    
     
 
 

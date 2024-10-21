@@ -103,11 +103,39 @@ int main(){
     }
 
 
+    double vector_time[3];
 
-
+    clock_t start = clock();
     encrypt(KB_1, KB_1_enc,KEY,IV);
+    clock_t end = clock();
+
+    double time_spent = (double)(end - start) * 1000 / CLOCKS_PER_SEC;
+    vector_time[0] = time_spent;
+
+    start = clock();
     encrypt(KB_10, KB_10_enc,KEY,IV);
+    end = clock();
+
+    time_spent = (double)(end - start) * 1000/ CLOCKS_PER_SEC;
+    vector_time[1] = time_spent;
+
+
+
+    start = clock();
     encrypt(MB_1, MB_1_enc,KEY,IV);
+    end = clock();
+
+    time_spent = (double)(end - start) * 1000 / CLOCKS_PER_SEC;
+    vector_time[2] = time_spent;
+   
+
+    for (int i = 0; i < 3; i++)
+    {
+       printf("Tempo di esecuzione file %d: %f millisecondi\n", i+1,vector_time[i]);
+    }
+    
+
+    
     
 
   
